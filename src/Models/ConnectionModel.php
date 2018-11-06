@@ -9,9 +9,11 @@ class ConnectionModel
 	
 	public function conectar(){
 		$usuario = "root";
-		$pass	=	"";
+		$pass	=	"ikaros";
 
-		$conn = PDO("mysql:host=localshot;dbname=18swnot;charset=utf8", $usuario, $pass) 
+		$conn = new PDO("mysql:host=localhost;dbname=18swnot;charset=utf8", $usuario, $pass);
+
+		return $conn;
 
 	}
 }

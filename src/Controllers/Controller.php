@@ -22,7 +22,7 @@ class Controller{
 		if (isset($_GET["action"])) {
 			
 			$enlaces = $_GET["action"];
-			$arrayEnlaces = array("camera","doc");
+			$arrayEnlaces = array("camera","gridsolicitudes");
 
 			if (in_array( $enlaces, $arrayEnlaces)) {
 

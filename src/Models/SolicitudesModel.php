@@ -4,16 +4,18 @@ require_once "src/Models/ConnectionModel.php";
 /**
  * 
  */
-class SolicituesModel extends ConnectionModel
+class SolicitudesModel
 {
 	
-	public function allSolicitudes($tabla){
+	public function allSolicitudes($tabla, $tabla2){
 
-		$conn->prepare("SELECT * FROM $tabla");
+		$sql = ConnectionModel::conectar()->prepare("
+			SELECT *,nombre FROM $tabla INNER JOIN $tabla2 ON 
+			$tabla.id_persona = $tabla2.id");
 		//$conn->bindParam(":tabla",$tabla,PDO::PARAM_STR);
-		$conn->execute();
+		$sql->execute();
 		
-		return $conn->fecthall();
+		return $sql->fetchAll();
 
 	}
 }
